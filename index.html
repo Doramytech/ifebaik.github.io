@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pyramid Builder</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <h2>You Believed Before The World Did</h2>
+
+  <!-- Search trigger -->
+  <div id="searchTrigger">
+    <img src="search-line.svg" alt="Search" class="search" />
+  </div>
+
+  <!-- Search bar (initially hidden) -->
+  <div class="search-wrapper active">
+    <div class="search-bar-container">
+      <form action="" method="get">
+        <div class="hello">
+          <input type="text" id="wordInput" placeholder="Enter a word" class="input" />
+          <button onclick="addWord(event)" type="button">Add Word</button>
+          <button onclick="clearPyramid()" type="button">Clear Pyramid</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pyramid display -->
+  <div id="pyramid"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
