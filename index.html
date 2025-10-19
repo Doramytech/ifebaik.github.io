@@ -90,7 +90,7 @@ body::before {
       const highlightWords = ["ASONY", "ADEOSUN", "RAYTHEDEV", "OLADEJO T.A","ASONIBARE I.G" ];
       line.innerHTML = lineWords.map(w => 
         highlightWords.includes(w)
-          ? `<span style="color: red;">${w}</span>`
+          ? `<span style="color: #cc5500;">${w}</span>`
           : w
       ).join(", ");
 
@@ -105,3 +105,4 @@ body::before {
 
 </body>
 </html>
+
