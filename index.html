@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Name Pyramid</title>
+<style>
+
+  .line {
+    margin: 5px 0;
+     opacity: 0;
+  animation: fadeIn 0.6s forwards;
+  }
+  .line:nth-child(1) { animation-delay: 0.3s; }
+.line:nth-child(2) { animation-delay: 0.6s; }
+.line:nth-child(3) { animation-delay: 0.9s; }
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+body {
+  font-family: monospace;
+  text-align: center;
+  background: radial-gradient(circle at bottom, #1b2735 0%, #090a0f 100%);
+  color: #fff;
+  padding: 20px;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 
+    100px 200px white,
+    150px 400px white,
+    300px 50px white,
+    400px 250px white,
+    500px 100px white,
+    600px 300px white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="pyramid"></div>
+
+<h1>You believed</h1>
+<h1>Before the world Did</h1>
+
+<script>
+  const pyramidContainer = document.getElementById("pyramid");
+
+  // 👇 Manually define your words here
+  const words = [
+  "ASONY", "ADEOSUN", "RAYTHEDEV", "OLADEJO T.A","ASONIBARE I.G" , 
+    "EBENEZER O.E", "CROISSANT", "NATHANIEL", "NFORSHIFFUDEV234", 
+    "DEOLAN","GLORIA A.I","LOUIS GBANIYI",
+
+
+
+  ];
+
+  function buildPyramid() {
+    pyramidContainer.innerHTML = "";
+    let index = 0;
+    let currentLine = 1;
+
+    while (index < words.length) {
+      const lineWords = [];
+      for (let i = 0; i < currentLine && index < words.length; i++) {
+        lineWords.push(words[index]);
+        index++;
+      }
+
+      const line = document.createElement("div");
+      line.className = "line";
+
+      // Highlight certain names
+      const highlightWords = ["ASONY", "ADEOSUN", "RAYTHEDEV", "OLADEJO T.A","ASONIBARE I.G" ];
+      line.innerHTML = lineWords.map(w => 
+        highlightWords.includes(w)
+          ? `<span style="color: red;">${w}</span>`
+          : w
+      ).join(", ");
+
+      pyramidContainer.appendChild(line);
+      currentLine++;
+    }
+  }
+
+  // Build the pyramid immediately when the page loads
+  buildPyramid();
+</script>
+
+</body>
+</html>
